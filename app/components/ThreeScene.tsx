@@ -100,7 +100,7 @@ export default function ThreeScene() {
   return (
     <div
       ref={mountRef}
-      className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-transparent mb-[100px]"
+      className="w-full  h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-transparent "
     />
   );
 }
