@@ -66,7 +66,7 @@ export default function ThreeScene() {
 
       angle += 0.02;
 
-      // Rotate electrons around nucleus
+      // Rotate electrons around nucleus 
       electrons.forEach((electron, i) => {
         const radius = orbitRadius[i];
         electron.position.x = Math.cos(angle * (i + 1)) * radius;
@@ -95,5 +95,5 @@ export default function ThreeScene() {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-[60vh] mt-10 bg-transparent" />;
+  return <div ref={mountRef} className="w-full h-[60vh] mb-[250px] bg-transparent" />;
 }

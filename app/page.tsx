@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Lightbulb } from "lucide-react";
 import "./globals.css";
-import cp from "../public/bacg.jpg";
+import cp from "../public/background.jpg";
 import NavBar from "./components/NavBar";
 import ThreeScene from "./components/ThreeScene";
 
@@ -24,7 +24,7 @@ export default function Home() {
           <div className="text-center space-y-8 mb-[100px] ">
             <ThreeScene />
             <div className="flex justify-center mt-[-200px]">
-              <div className="flex justify-center items-center gap-7 w-[600px] h-[200px] bg-gray-400/55 backdrop-blur-md border-none rounded-md shadow-gray-400 shadow">
+              <div className="flex justify-center items-center gap-7 w-[1000px] h-[200px] bg-gray-400/55 backdrop-blur-md border-none rounded-md shadow-gray-400 shadow">
                 <span className="mt-[-60px] ml-4">
                   <Lightbulb size={28} color="yellow" />
                 </span>

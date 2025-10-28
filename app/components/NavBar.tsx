@@ -19,8 +19,9 @@ export default function NavBar({ onSectionChange }: { onSectionChange: (id: stri
   };
 
   return (
-    <nav className="flex justify-between items-center w-full bg-gradient-to-r from-orange-300 to-orange-700/50 text-white px-10 py-4 
-     shadow-yellow-500 shadow-md border-none fixed top-0 left-0 z-50">
+    <nav  className="flex justify-between items-center w-full 
+  backdrop-blur-md bg-white/10 text-white px-10 py-4 
+  shadow-lg border-b border-white/10 fixed top-0 left-0 z-50">
       <div className="text-2xl font-semibold tracking-wide flex gap-2 cursor-pointer">
         <ChevronsLeftRightEllipsis size={30} className="mb-1" />
         ODC Localhost
