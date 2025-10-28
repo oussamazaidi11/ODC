@@ -34,7 +34,7 @@ export default function HomeSc(){
         z-20
       `}
     >
-    <div className="fixed inset-0 flex justify-center items-center z-20 px-6 mb-[-450px]">
+    <div className="fixed inset-0 flex justify-center items-center z-20 px-6 mb-[100px] md:mb-[450px]">
   <div
     className="backdrop-blur-lg bg-white/10 border border-white/20
     shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-3xl
