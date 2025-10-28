@@ -10,7 +10,7 @@ export default function ThreeScene() {
     const mount = mountRef.current!;
     const scene = new THREE.Scene();
 
-    // Camera
+    // --- Camera ---
     const camera = new THREE.PerspectiveCamera(
       75,
       mount.clientWidth / mount.clientHeight,
@@ -19,31 +19,32 @@ export default function ThreeScene() {
     );
     camera.position.z = 5;
 
-    // Renderer
+    // --- Renderer ---
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(mount.clientWidth, mount.clientHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
     mount.appendChild(renderer.domElement);
 
-    // Nucleus (central sphere) - yellow
+    // --- Nucleus ---
     const nucleusGeometry = new THREE.SphereGeometry(0.5, 32, 32);
     const nucleusMaterial = new THREE.MeshStandardMaterial({
-      color: 0xfff176, // yellow
+      color: 0xfff176,
       emissive: 0xfff59d,
       emissiveIntensity: 0.6,
     });
     const nucleus = new THREE.Mesh(nucleusGeometry, nucleusMaterial);
     scene.add(nucleus);
 
-    // Electrons (small spheres) - soft orange
+    // --- Electrons ---
     const electronGeometry = new THREE.SphereGeometry(0.1, 16, 16);
     const electronMaterial = new THREE.MeshStandardMaterial({
-      color: 0xffb74d, // soft orange
+      color: 0xffb74d,
       emissive: 0xffcc80,
       emissiveIntensity: 0.8,
     });
 
     const electrons: THREE.Mesh[] = [];
-    const orbitRadius = [1, 1.5, 2]; // distances from nucleus
+    const orbitRadius = [1, 1.5, 2];
     orbitRadius.forEach((radius) => {
       const electron = new THREE.Mesh(electronGeometry, electronMaterial);
       electron.position.set(radius, 0, 0);
@@ -51,29 +52,26 @@ export default function ThreeScene() {
       electrons.push(electron);
     });
 
-    // Lights
-    const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+    // --- Lighting ---
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
     scene.add(ambientLight);
 
     const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
     directionalLight.position.set(5, 5, 5);
     scene.add(directionalLight);
 
-    // Animation
+    // --- Animation ---
     let angle = 0;
     const animate = () => {
       requestAnimationFrame(animate);
-
       angle += 0.02;
 
-      // Rotate electrons around nucleus 
       electrons.forEach((electron, i) => {
         const radius = orbitRadius[i];
         electron.position.x = Math.cos(angle * (i + 1)) * radius;
         electron.position.z = Math.sin(angle * (i + 1)) * radius;
       });
 
-      // Optional: nucleus slowly rotates
       nucleus.rotation.y += 0.005;
 
       renderer.render(scene, camera);
@@ -81,12 +79,16 @@ export default function ThreeScene() {
 
     animate();
 
-    // Resize
+    // --- Resize handler ---
     const handleResize = () => {
-      camera.aspect = mount.clientWidth / mount.clientHeight;
+      if (!mount) return;
+      const { clientWidth, clientHeight } = mount;
+      camera.aspect = clientWidth / clientHeight;
       camera.updateProjectionMatrix();
-      renderer.setSize(mount.clientWidth, mount.clientHeight);
+      renderer.setSize(clientWidth, clientHeight);
+      renderer.setPixelRatio(window.devicePixelRatio);
     };
+
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -95,5 +97,10 @@ export default function ThreeScene() {
     };
   }, []);
 
-  return <div ref={mountRef} className="w-full h-[60vh] mb-[250px] bg-transparent" />;
+  return (
+    <div
+      ref={mountRef}
+      className="w-full h-[50vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] bg-transparent mb-[100px]"
+    />
+  );
 }

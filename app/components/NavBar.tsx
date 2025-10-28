@@ -47,12 +47,18 @@ export default function NavBar({ onSectionChange }: { onSectionChange: (id: stri
       </button>
 
       {isOpen && (
-        <div className="absolute top-16 left-0 w-full bg-gradient-to-r from-orange-300 to-orange-700 flex flex-col items-center gap-4 py-4 md:hidden shadow-lg animate-fadeIn">
+        <div
+          className="absolute top-16 left-0 w-full 
+          backdrop-blur-lg bg-white/10 text-white 
+          flex flex-col items-center gap-4 py-4 md:hidden 
+          border-t border-white/10 shadow-lg animate-fadeIn"
+        >
           {menuItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleClick(item.id)}
-              className="w-full text-center py-2 text-lg font-medium hover:bg-white/20 transition-all duration-200"
+              className="w-full text-center py-2 text-lg font-medium 
+              hover:bg-white/20 transition-all duration-200"
             >
               {item.name}
             </button>
