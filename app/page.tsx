@@ -12,8 +12,8 @@ export default function Home() {
 
   return (
     <div
-      className="w-full min-h-screen bg-cover bg-center transition-all duration-700 ease-in-out"
-      style={{ backgroundImage: `url(${cp.src})` }}
+      className="w-full min-h-screen bg-no-repeat bg-center bg-cover md:bg-fixed transition-all duration-700 ease-in-out"
+  style={{ backgroundImage: `url(${cp.src})` }}
     >
       {/* Pass setActiveSection to NavBar */}
       <NavBar onSectionChange={setActiveSection} />
