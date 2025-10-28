@@ -34,19 +34,22 @@ export default function HomeSc(){
         z-20
       `}
     >
-      <div
-        className="backdrop-blur-lg bg-white/10 border border-white/20
-        shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-3xl
-        text-center text-white mb-0 md:mb-0"
-      >
-        <h2 className="text-2xl md:text-3xl font-semibold text-orange-300 mb-4">
-          About Us
-        </h2>
-        <p className="text-lg md:text-xl leading-relaxed font-light text-gray-100 min-h-[80px]">
-          {displayText}
-          <span className="animate-pulse text-orange-400">|</span>
-        </p>
-      </div>
+    <div className="fixed inset-0 flex justify-center items-center z-20 px-6 mb-[-450px]">
+  <div
+    className="backdrop-blur-lg bg-white/10 border border-white/20
+    shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-3xl
+    text-center text-white"
+  >
+    <h2 className="text-2xl md:text-3xl font-semibold text-orange-300 mb-4">
+      About Us
+    </h2>
+    <p className="text-lg md:text-xl leading-relaxed font-light text-gray-100 min-h-[80px]">
+      {displayText}
+      <span className="animate-pulse text-orange-400">|</span>
+    </p>
+  </div>
+</div>
+
     </section>
   </div>
 );
