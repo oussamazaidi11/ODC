@@ -20,10 +20,10 @@ export default function HomeSc(){
   }, []);
     return(
         <div>
-            <div className="w-full h-full mt-[-100px]">
+            <div className="w-full h-full ">
                 <ThreeScene />
             </div>
-            <section className="flex justify-center items-center w-full px-6 mt-[-50px]">
+            <section className="flex justify-center items-center w-full px-6">
         <div
           className="backdrop-blur-lg bg-white/10 border border-white/20
            shadow-lg rounded-2xl p-6 md:p-10 w-full max-w-3xl

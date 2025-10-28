@@ -49,7 +49,7 @@ export default function NavBar({ onSectionChange }: { onSectionChange: (id: stri
       {isOpen && (
         <div
           className="absolute top-16 left-0 w-full 
-          backdrop-blur-lg bg-white/10 text-white 
+          backdrop-blur-3xl bg-white/10 text-white 
           flex flex-col items-center gap-4 py-4 md:hidden 
           border-t border-white/10 shadow-lg animate-fadeIn"
         >
