@@ -46,25 +46,26 @@ export default function NavBar({ onSectionChange }: { onSectionChange: (id: stri
         {isOpen ? <X size={28} /> : <Menu size={28} />}
       </button>
 
-      {isOpen && (
-        <div
-          className="absolute top-16 left-0 w-full 
-          backdrop-blur-3xl bg-white/10 text-white 
-          flex flex-col items-center gap-4 py-4 md:hidden 
-          border-t border-white/10 shadow-lg animate-fadeIn"
-        >
-          {menuItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => handleClick(item.id)}
-              className="w-full text-center py-2 text-lg font-medium 
-              hover:bg-white/20 transition-all duration-200"
-            >
-              {item.name}
-            </button>
-          ))}
-        </div>
-      )}
+     {isOpen && (
+  <div
+    className="absolute top-16 left-0 w-full 
+    backdrop-blur-3xl bg-white/10 text-white 
+    grid grid-cols-2 gap-4 py-4 md:hidden 
+    border-t border-white/10 shadow-lg animate-fadeIn"
+  >
+    {menuItems.map((item) => (
+      <button
+        key={item.id}
+        onClick={() => handleClick(item.id)}
+        className="w-full text-center py-2 text-lg font-medium 
+        hover:bg-white/20 transition-all duration-200 rounded-lg"
+      >
+        {item.name}
+      </button>
+    ))}
+  </div>
+)}
+
     </nav>
   );
 }
